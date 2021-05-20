@@ -1,9 +1,12 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
-
 const app = express();
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const authRoutes = require("./routes/auth");
 
+//DB Connection
 mongoose
   .connect(process.env.DB_URL, {
     useNewUrlParser: true,
@@ -17,6 +20,15 @@ mongoose
     console.log("DB CONNECTION FAILED!");
   });
 
+//Middleware
+app.use(express.json());
+app.use(cookieParser());
+app.use(cors());
+
+//Routes
+app.use("/api", authRoutes);
+
+//PORT
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
