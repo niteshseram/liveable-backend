@@ -1,4 +1,4 @@
-import mongoone from "mongooose";
+import mongoose from "mongooose";
 const { Schema } = mongoose;
 
 const categorySchema = Schema(
