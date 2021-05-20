@@ -1,0 +1,14 @@
+{
+  "name": "liveable-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start":"nodemon app.js"
+  },
+  "author": "Nitesh",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
