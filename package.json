@@ -4,11 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start":"nodemon app.js"
+    "start": "nodemon app.js"
   },
   "author": "Nitesh",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.7"
+    "mongoose": "^5.12.10",
+    "nodemon": "^2.0.7",
+    "uuid": "^8.3.2"
   }
 }
