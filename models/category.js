@@ -1,4 +1,4 @@
-import mongoose from "mongooose";
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const categorySchema = Schema(

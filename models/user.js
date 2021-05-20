@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import { createHmac } from "crypto";
-import { v1 as uuidv1 } from "uuid";
+const mongoose = require("mongoose");
+const crypto = require("crypto");
+const { v1: uuidv1 } = require("uuid");
 const { Schema } = mongoose;
 
 const userSchema = new Schema(
@@ -26,7 +26,6 @@ const userSchema = new Schema(
       type: String,
       trim: true,
     },
-    //TODO: come back here
     encry_password: {
       type: String,
       required: true,
@@ -55,14 +54,15 @@ userSchema
     return this._password;
   });
 
-userSchema.method = {
+userSchema.methods = {
   authenticate: function (plainpassword) {
     return this.securePassword(plainpassword) === this.encry_password;
   },
   securePassword: function (plainpassword) {
     if (!plainpassword) return "";
     try {
-      return createHmac("sha256", this.salt)
+      return crypto
+        .createHmac("sha256", this.salt)
         .update(plainpassword)
         .digest("hex");
     } catch (err) {
