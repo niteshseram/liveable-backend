@@ -23,7 +23,7 @@ const orderSchema = Schema(
     address: String,
     updated: Date,
     user: {
-      type: ObjecId,
+      type: ObjectId,
       ref: "User",
     },
   },
